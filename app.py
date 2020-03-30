@@ -1,7 +1,7 @@
 import os
 import sys 
 from PyQt4.QtCore import * 
-from PyQt4.QtGui import *  
+from PyQt4.QtGui import * 
  
 def main(): 
     app = QApplication(sys.argv) 
@@ -14,8 +14,8 @@ def main():
 class MyWindow(QWidget): 
     def __init__(self, *args): 
         QWidget.__init__(self, *args) 
-        label = QLabel(self.tr("press Enter to display network statistics"))
-        self.le = QLineEdit()
+        label = QLabel(self.tr("Click Display to display the network statistics"))
+        self.le = QPushButton("Display")
         self.te = QTextEdit()
 	self.btn = QPushButton("Exit")
         layout = QVBoxLayout(self)
@@ -24,9 +24,7 @@ class MyWindow(QWidget):
         layout.addWidget(self.te)
 	layout.addWidget(self.btn)
         self.setLayout(layout) 
-	self.le.setText('location of information : /proc/net/netstat')
-        self.connect(self.le,SIGNAL("returnPressed(void)"),
-                     self.run_command)
+	self.le.clicked.connect(self.run_command)
 	self.btn.clicked.connect(quit)
 	
 	
