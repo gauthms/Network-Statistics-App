@@ -1,31 +1,28 @@
 import os
 import sys 
 from PyQt4.QtCore import * 
-from PyQt4.QtGui import *  
+from PyQt4.QtGui import * 
  
 def main(): 
     app = QApplication(sys.argv) 
     w = MyWindow() 
+    w.setWindowTitle("Network Statistics")
+    w.setGeometry(720,320,500,500)
     w.show() 
     sys.exit(app.exec_()) 
  
 class MyWindow(QWidget): 
     def __init__(self, *args): 
         QWidget.__init__(self, *args) 
- 
-  
         label = QLabel(self.tr("press Enter to display network statistics"))
         self.le = QLineEdit()
         self.te = QTextEdit()
-
- 
         layout = QVBoxLayout(self)
         layout.addWidget(label)
         layout.addWidget(self.le)
         layout.addWidget(self.te)
         self.setLayout(layout) 
-
-
+	self.le.setText('location of information : /proc/net/netstat')
         self.connect(self.le,SIGNAL("returnPressed(void)"),
                      self.run_command)
 
@@ -36,4 +33,3 @@ class MyWindow(QWidget):
   
 if __name__ == "__main__": 
     main()
-
