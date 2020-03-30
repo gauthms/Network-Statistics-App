@@ -1,7 +1,7 @@
 import os
 import sys 
 from PyQt4.QtCore import * 
-from PyQt4.QtGui import * 
+from PyQt4.QtGui import *  
  
 def main(): 
     app = QApplication(sys.argv) 
