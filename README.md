@@ -1,3 +1,3 @@
-# MicroProject
-Display network statistics information in human readable form.
-The app uses PyQt4 for this task
+# Foss Lab Microproject
+An app that displays network statistics information in human readable form.
+PyQt4 used for designing.
